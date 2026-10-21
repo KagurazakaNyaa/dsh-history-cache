@@ -1,0 +1,6 @@
+{
+	"meta": {
+		"title": "Session History Cache",
+		"description": "Keeps recently opened sessions warm in the browser, so switching back does not re-fetch their history from the Host."
+	}
+}

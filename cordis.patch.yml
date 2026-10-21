@@ -1,0 +1,6 @@
+# Mounted by the profile composer through `dsh.bundle.patch`. The Host row is a
+# no-op: it exists so the browser scanner discovers `dsh.client` and serves
+# `client.js`, where the history cache actually lives.
+- insert:
+    - id: dsh-history-cache
+      name: '@kagurazakanyaa/dsh-history-cache'

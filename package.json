@@ -1,0 +1,52 @@
+{
+  "name": "@kagurazakanyaa/dsh-history-cache",
+  "version": "0.1.0",
+  "description": "Keeps recently opened DSH Web sessions warm in the browser so switching back to a session no longer re-pulls its history from the Host.",
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KagurazakaNyaa/dsh-history-cache.git"
+  },
+  "homepage": "https://github.com/KagurazakaNyaa/dsh-history-cache",
+  "bugs": {
+    "url": "https://github.com/KagurazakaNyaa/dsh-history-cache/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "session-history",
+    "client-cache"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}
