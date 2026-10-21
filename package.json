@@ -1,6 +1,6 @@
 {
   "name": "@kagurazakanyaa/dsh-history-cache",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keeps recently opened DSH Web sessions warm in the browser so switching back to a session no longer re-pulls its history from the Host.",
   "type": "module",
   "license": "AGPL-3.0-or-later",
