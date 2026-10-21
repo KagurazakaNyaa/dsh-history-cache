@@ -32,6 +32,26 @@ DSH Web 的主视图在切换会话时会释放上一个会话的引用。引用
 
 修改后刷新页面生效。
 
+## 发布
+
+版本标签驱动，推 tag 即发布（GitHub Actions → npm Trusted Publishing / OIDC，**无需 NPM_TOKEN**）：
+
+```sh
+npm version patch        # 或 minor / major：改 package.json 并打 tag
+git push --follow-tags
+```
+
+`publish.yml` 会校验 tag 与 `package.json` 版本一致、跑测试，再执行 `npm publish --access public`；`test.yml` 在 main 和 PR 上跑 Node 20/22 × 三平台。npm 侧只需配置一次 trusted publisher：
+
+| 字段 | 值 |
+| --- | --- |
+| Organization or user | `KagurazakaNyaa` |
+| Repository | `dsh-history-cache` |
+| Workflow filename | `publish.yml` |
+| Allowed actions | 勾选 `npm publish`（不要只开 stage publish） |
+
+OIDC 只对已存在的包生效，所以第一次发布需要手动完成。
+
 ## 限制
 
 - 缓存只在当前页面生命周期内有效；刷新页面后首次打开会话仍会拉取（这是客户端内存缓存，不是持久化缓存）。
